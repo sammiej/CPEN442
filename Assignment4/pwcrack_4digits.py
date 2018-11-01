@@ -14,13 +14,15 @@ while True:
     pw = salt + pw
     hash = hashlib.sha1(pw).hexdigest().upper()
 
+    # Debug
     if counter % 10000 == 1:
         print(pw + " " + hash)
 
+    # Found
     if salt + hash == pw_hash:
         print("Password cracked: " + pw)
         print("Hash: " + hash)
         print("--- %s seconds ---" % (time.time() - start_time))
         break
-        
+
     counter += 1
